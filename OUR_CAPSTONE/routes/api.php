@@ -30,4 +30,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'update']);
     Route::delete('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'destroy']); 
 //}); //LOck the DATA 
-Route::post('/login', [AuthenticationApiController::class, 'login2']);
+Route::post('/login', [AuthenticationApiController::class, 'login']);
