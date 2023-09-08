@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationApiController;
-use App\Http\Controllers\EmployeeApiController;
+use App\Http\Controllers\Pubg_clansApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,18 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request){
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/admin', function (Request $request){
+    return $request->admin();
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-// }); 
-    Route::post('/logout', [AuthenticationApiController::class, 'logout']); 
-    Route::get('/employees', [EmployeeApiController::class, 'index']);
-    Route::post('/employees', [EmployeeApiController::class, 'store']);
-    Route::get('/employees/{employee}', [EmployeeApiController::class, 'show']);
-    Route::put('/employees/{employee}', [EmployeeApiController::class, 'update']);
-    Route::patch('/employees/{employee}', [EmployeeApiController::class, 'update']);
-    Route::delete('/employees/{employee}', [EmployeeApiController::class, 'destroy']); 
-}); //LOck the DATA 
-Route::post('/login', [AuthenticationApiController::class, 'login']);
+ }); 
+    Route::post('/logout', [AuthenticationApiController::class, 'logout2']); 
+    Route::get('/pubg_clans', [Pubg_ClansApiController::class, 'index']);
+    Route::post('/pubg_clans', [Pubg_ClansApiController::class, 'store']);
+    Route::get('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'show']);
+    Route::put('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'update']);
+    Route::patch('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'update']);
+    Route::delete('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'destroy']); 
+//}); //LOck the DATA 
+Route::post('/login', [AuthenticationApiController::class, 'login2']);

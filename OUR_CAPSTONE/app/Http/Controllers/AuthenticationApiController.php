@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,7 +11,7 @@ class AuthenticationApiController extends Controller
 {
     public function index()
     {
-        return User::all();
+        return Admin::all();
     }
 
     public function login(Request $request)
@@ -23,8 +23,8 @@ class AuthenticationApiController extends Controller
             ]
         );
 
-        $user = User::where('email', $validated['email'])->first();
-        if (!$user || !Hash::check($validated['password'], $user->password)) {
+        $admin = Admin::where('email', $validated['email'])->first();
+        if (!$admin || !Hash::check($validated['password'], $admin->password)) {
             return response(
                 [
                     'message' => "Bad Credential"
@@ -33,11 +33,11 @@ class AuthenticationApiController extends Controller
             );
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        $token = $admin->createToken('myapptoken')->plainTextToken;
 
         return  response(
             [
-                'user' => $user,
+                'admin' => $admin,
                 'token' => $token
             ],
             200
@@ -46,7 +46,7 @@ class AuthenticationApiController extends Controller
 
     public function logout(Request $request)
     {
-        $request->user()->tokens()->delete();
+        $request->admin()->tokens()->delete();
         return response(['message' => 'log out successfully']);
     }
 }
