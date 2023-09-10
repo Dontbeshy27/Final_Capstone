@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Pubg_clanRequest;
 use App\Models\Pubg_clan;
 use Illuminate\Http\Request;
 
@@ -19,12 +18,12 @@ class Pubg_clansApiController extends Controller
         return  $pubg_clan;
     }
 
-    public function store(Pubg_clanRequest $request)
+    public function store(Request $request)
     {
         $pubg_clan = Pubg_clan::create($request->all());
         return response(
             [
-                'message' => 'your clan is successfully created',
+                'message' => 'PUBG CLANS is successfully created',
                 'pubg_clan' => $pubg_clan,
                 'id' => $pubg_clan->id
             ],
@@ -36,7 +35,7 @@ class Pubg_clansApiController extends Controller
     {
         $pubg_clan->update($request->all());
         return response([
-            'message' => 'Employee su   ccessfully updated',
+            'message' => 'PUBG CLANS is successfully updated',
             'employee' => $pubg_clan,
             'id' => $pubg_clan->id
         ]);

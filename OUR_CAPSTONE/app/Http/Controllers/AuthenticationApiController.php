@@ -14,7 +14,7 @@ class AuthenticationApiController extends Controller
         return Admin::all();
     }
 
-    public function login(Request $request)
+    public function login2(Request $request)
     {
         $validated = $request->validate(
             [
@@ -44,7 +44,7 @@ class AuthenticationApiController extends Controller
         );
     }
 
-    public function logout(Request $request)
+    public function logout2(Request $request)
     {
         $request->admin()->tokens()->delete();
         return response(['message' => 'log out successfully']);

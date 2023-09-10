@@ -22,12 +22,12 @@ Route::middleware('auth:sanctum')->get('/admin', function (Request $request){
 
 Route::middleware('auth:sanctum')->group(function () {
  }); 
-    Route::post('/logout', [AuthenticationApiController::class, 'logout2']); 
+    Route::post('/logout2', [AuthenticationApiController::class, 'logout2']); 
     Route::get('/pubg_clans', [Pubg_ClansApiController::class, 'index']);
     Route::post('/pubg_clans', [Pubg_ClansApiController::class, 'store']);
     Route::get('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'show']);
     Route::put('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'update']);
     Route::patch('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'update']);
     Route::delete('/pubg_clans/{pubg_clan}', [Pubg_ClansApiController::class, 'destroy']); 
-//}); //LOck the DATA 
-Route::post('/login', [AuthenticationApiController::class, 'login2']);
+//}); //Lock the DATA 
+Route::post('/login2', [AuthenticationApiController::class, 'login2']);
