@@ -36,7 +36,7 @@ class Pubg_clansApiController extends Controller
         $pubg_clan->update($request->all());
         return response([
             'message' => 'PUBG CLANS is successfully updated',
-            'employee' => $pubg_clan,
+            'pubg_clan' => $pubg_clan,
             'id' => $pubg_clan->id
         ]);
     }   
